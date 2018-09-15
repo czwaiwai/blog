@@ -1,11 +1,7 @@
 # blog
 记录一些常见问题  
-用一个美女图片来镇宅～　　
-![美女](./img/timg.jpg)  
-表头|表头|表头
----|:--:|---:
-内容|内容|内容
-内容|内容|内容
+用一个美女图片来镇宅～  
+<img src="./img/timg.jpg" title="美女" width="200" div >
 ```javascript
 function () {
     var a = "hello world"
@@ -15,3 +11,7 @@ function () {
 #这个是注释bash
 rm -rf *
 ```
+表格|表头|表头
+---|:--:|---:
+markdown表格样式|内容|内容
+内容|内容|内容
