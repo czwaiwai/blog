@@ -2,8 +2,11 @@
 记录一些常见问题  
 用一个美女图片来镇宅～  
 markdown 基本操作  
-<img src="./img/timg.jpg" title="美女" width="200" div >  
-[测试页面](./linux/test.md "测试连接")
+===  
+<img src="./img/timg.jpg" title="美女" width="200" div />
+
+[linux常用操作](./linux/index.md "linux常用操作")  
+
 ```js
 function () {
     var a = "hello world"
