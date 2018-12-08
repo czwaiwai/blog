@@ -6,7 +6,7 @@ markdown 基本操作
 <img src="./img/timg.jpg" title="美女" width="200" div />
 
 [linux常用操作](./linux/index.md "linux常用操作")  
-
+[docker操作记录](./linux/docker.md "docker操作记录")
 ```js
 function () {
     var a = "hello world"
