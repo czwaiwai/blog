@@ -26,3 +26,15 @@ mount -t cifs -o username=share //172.31.118.122/tmp /mnt/share
 # centos自动挂载目录
 
 ```
+
+### centos7防火墙开放端口
+
+```bash
+# firewall 开启8388 tcp端口
+firewall-cmd --zone=public --add-port=8388/tcp --permanent
+#  firewall 开启8388 udp端口
+firewall-cmd --zone=public --add-port=8388/udp --permanent
+# firewall reload 使配置生效
+firewall-cmd --reload
+```
+
