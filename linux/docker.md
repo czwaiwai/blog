@@ -18,5 +18,27 @@ docker exec -it nginx bash
 #获取容器的ip
 docker inspect --format '{{ .NetworkSettings.IPAddress }}' nginx
 #使用nginx镜像创建容器
-docker run --name nginx -d -p 80:80 -v /home/czwaiwai/test/nginx.conf:/etc/nginx/nginx.conf -v /home/czwaiwai/test/html:/usr/share/nginx/html -v /home/czwaiwai/test/logs/access.log:/var/log/nginx/access.log  nginx
+docker run --name nginx -d -p 80:80 -v /home/czwaiwai/docker/nginx/nginx.conf:/etc/nginx/nginx.conf -v /home/czwaiwai/docker/nginx/html:/usr/share/nginx/html -v /home/czwaiwai/docker/nginx/logs/access.log:/var/log/nginx/access.log  --link=node_demo01:node nginx
+# --link=[容器的name]:[容器中的别名] 链接容器
+```
+
+```bash
+docker run -d --name jenkins -p 49001:8080 -v /home/czwaiwai/test/jenkins_home:/var/jenkins_home jenkins
+```
+#### dockerfile node 基础用法
+```bash
+#制定node镜像的版本
+FROM node:8.9-alpine
+#声明作者
+MAINTAINER czwaiwai
+#移动当前目录下面的文件到app目录下
+ADD . /app/
+#进入到app目录下面，类似cd
+WORKDIR /app
+#安装依赖
+RUN npm install
+#对外暴露的端口
+EXPOSE 3000
+#程序启动脚本
+CMD ["npm", "start"]
 ```
