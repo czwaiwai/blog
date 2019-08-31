@@ -30,10 +30,15 @@ mount -t cifs -o username=share //172.31.118.122/tmp /mnt/share
 ### centos7防火墙开放端口
     
 ```bash
+# 查看所有打开的端口：
+firewall-cmd --zone=public --list-ports
 # firewall 开启8388 tcp端口
 firewall-cmd --zone=public --add-port=8388/tcp --permanent
 #  firewall 开启8388 udp端口
 firewall-cmd --zone=public --add-port=8388/udp --permanent
+# ps --permanent参数表示永久有效
+# 删除8080 TCP 端口
+firewall-cmd --zone=public --remove-port=8080/tcp --permanent
 # firewall reload 使配置生效
 firewall-cmd --reload
 ```

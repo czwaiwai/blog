@@ -6,6 +6,7 @@ phantomjs_cdnurl=https://npm.taobao.org/mirrors/phantomjs/
 registry=https://registry.npm.taobao.org
 ```
 
+<<<<<<< Updated upstream
 
 ```javascript
 // 自己实现一个简易reduce
@@ -119,4 +120,10 @@ compose()(2)
   a 5
   结果: 6
 */
+=======
+#### express 脚手架快速创建应用
+```bash
+#--view=ejs 指定ejs模板
+express --view=ejs  demo_ssoCenter
+>>>>>>> Stashed changes
 ```

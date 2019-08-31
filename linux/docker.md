@@ -20,10 +20,15 @@ docker inspect --format '{{ .NetworkSettings.IPAddress }}' nginx
 #使用nginx镜像创建容器
 docker run --name nginx -d -p 80:80 -v /home/czwaiwai/docker/nginx/nginx.conf:/etc/nginx/nginx.conf -v /home/czwaiwai/docker/nginx/html:/usr/share/nginx/html -v /home/czwaiwai/docker/nginx/logs/access.log:/var/log/nginx/access.log  --link=node_demo01:node nginx
 # --link=[容器的name]:[容器中的别名] 链接容器
+
+# 构建一个镜像文件
+docker build -t node_demo01 .
 ```
 
 ```bash
-docker run -d --name jenkins -p 49001:8080 -v /home/czwaiwai/test/jenkins_home:/var/jenkins_home jenkins
+# 运行jenkins
+docker run -d --name jenkins -p 49001:8080  -p 50000:50000 -v /home/czwaiwai/docker/jenkins_home:/var/jenkins_home jenkins/jenkins
+# 浏览器打开localhost:49001即可查看
 ```
 #### dockerfile node 基础用法
 ```bash
@@ -41,4 +46,24 @@ RUN npm install
 EXPOSE 3000
 #程序启动脚本
 CMD ["npm", "start"]
+```
+
+#### 安装gitlab
+```bash
+# 下载gitlab
+docker pull gitlab/gitlab:latest
+# 运行gitlab
+# --restart always 加上这个命令可以使宿主机重启后自动启动容器
+docker run -d --hostname 192.168.1.106  \
+-p 10443:443 \
+-p 10080:80  \
+-p 10022:22  \
+--name=gitlab \
+-v /home/czwaiwai/docker/gitlab/config:/etc/gitlab \
+-v /home/czwaiwai/docker/gitlab/logs:/var/log/gitlab \
+-v /home/czwaiwai/docker/gitlab/data:/var/opt/gitlab \
+gitlab/gitlab-ce
+# ps： 对应的端口记得在防火墙中放开
+# pps:默认账户名为root，首次会要求设置密码
+# pps: 需要设置邮件服务等配置
 ```
