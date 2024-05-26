@@ -1,4 +1,4 @@
-### mysql安装及启动
+# mysql安装及启动
 centos7默认安装的版本是Mariadb
 
   

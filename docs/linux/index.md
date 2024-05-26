@@ -1,3 +1,9 @@
+---
+title: linux 相关
+editLink: true
+layout: doc
+---
+
 ### centos 常用操作记录
 
 ```bash
